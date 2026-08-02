@@ -31,20 +31,29 @@ try:
         "the exact technical terminal commands an engineer should run next."
     )
     
-    # 6. Send the matrix packet over to the updated active AI model
+    # 6. Send the matrix packet over to the AI model
     response = client.chat.completions.create(
-        model="llama-3.1-8b-instant",  # Updated active free-tier model id
+        model="llama-3.1-8b-instant",
         messages=[
             {"role": "system", "content": system_rules},
             {"role": "user", "content": f"Review this network log capture data:\n\n{data_string}"}
         ]
     )
     
-    # 7. Print the professional security report
+    ai_report = response.choices[0].message.content
+
+    
+    # 7. Print the report to the terminal
     print("\n================ KALI AI REPORT ================")
-    print(response.choices[0].message.content)
-=
+    print(ai_report)
     print("================================================")
+    
+    # NEW AUTOMATION STEP: Save the report automatically to a text file
+    report_file_path = os.path.join(current_folder, "security_report.txt")
+    with open(report_file_path, "w", encoding="utf-8") as f:
+        f.write(ai_report)
+        
+    print(f"\n[+] SUCCESS: Report saved locally to {report_file_path}")
 
 except FileNotFoundError:
     print("ERROR: Missing network_logs.csv data file asset.")
