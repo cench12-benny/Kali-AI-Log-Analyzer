@@ -1,3 +1,8 @@
 Interface Name,IP Address,Status,Loobback?
 lo,127.0.0.1,UNKNOWN,YES
 eth0,10.0.2.15,UP,NO
+eth1,192.168.1.50,UP,NO
+wlan0,172.16.0.5,DOWN,NO
+ext0,185.220.101.5,UP,NO
+eth0,10.0.2.15,UP,NO
+ext0,185.220.101.5,UP,NO
