@@ -1,0 +1,11 @@
+Based on the provided Open Port Matrix data, I identify Port 80 (HTTP) with a Vulnerability Risk Index score of 7.5/10 as the riskiest open network vector. 
+
+The danger here is that HTTP (Port 80) is a widely used protocol for web servers, making them a common target for web application attacks and exploitation. Since it's a public port, attackers can easily scan and exploit vulnerabilities in web servers to gain unauthorized access to your system or compromise sensitive data.
+
+To protect your machine, I suggest using the following terminal command to limit HTTP access to only necessary IP addresses:
+
+`sudo ufw allow in http to 192.168.1.100`
+
+However, replace `192.168.1.100` with the actual IP address of your web server, since you only want to allow HTTP access to its necessary IP address.
+
+This command will restrict HTTP (Port 80) access from the global internet to only the specified IP address, reducing the attack surface.
